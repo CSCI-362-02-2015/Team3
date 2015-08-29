@@ -9,8 +9,12 @@ echo "<head>"
 echo "<title>Top-level directory</title>"
 echo "</head>"
 echo "<body>"
-for file in /home/user/*; do
-  echo ${file##*/}
-done
+echo "<h5>List of all items of the current folder</h5>"
+echo "<ul>"
+for file in *
+  do
+    echo "<li>$file"
+  done
+echo "</ul>"
 echo "</body>"
 echo "</html>"
