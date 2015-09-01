@@ -18,7 +18,7 @@ getHTML() {
 		if [ -d "$file" ] 
 			then 
 				cd $file
-				echo "<div class='list-group-item'><b>$file ($(ls -1 | wc -l))</b>"
+				echo "<div class='list-group-item'><b>$file ($(ls -1 | wc -l) files)</b>"
 				if [ "$(ls -A *)" ]
 					then for insideFile in *
 						do echo "<li style='margin: 0 0 0 50px'>$insideFile"
@@ -26,7 +26,7 @@ getHTML() {
 				fi
 				echo "</div>"
 				cd ..
-			else echo "<div class='list-group-item'>$file</div>"
+			else echo "<div class='list-group-item'>$file <span style='margin-left:15px;' class="badge">$(stat -c%s "$file") bytes</span></div>"
 		fi
 	done
 	echo "</ul>"
