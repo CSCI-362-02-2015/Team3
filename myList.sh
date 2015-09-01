@@ -18,13 +18,13 @@ getHTML() {
 		if [ -d "$file" ] 
 			then 
 				cd $file
-				echo "<div style='margin-top: 20px' class='list-group-item'><b>$file ($(ls -1 | wc -l))</b>"
+				echo "<div class='list-group-item'><b>$file ($(ls -1 | wc -l))</b>"
 				for insideFile in *
 					do echo "<li style='margin: 0 0 0 50px'>$insideFile"
 				done
 				echo "</div>"
 				cd ..
-			else echo "<div style='margin-top: 20px' class='list-group-item'>$file</div>"
+			else echo "<div class='list-group-item'>$file</div>"
 		fi
 	done
 	echo "</ul>"
