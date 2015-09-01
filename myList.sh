@@ -35,4 +35,4 @@ getHTML() {
 }
 
 getHTML > test.html
-firefox test.html
+firefox -url test.html 2>/dev/null
