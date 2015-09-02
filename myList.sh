@@ -1,4 +1,3 @@
-#Team3
 #!/bin/bash
 
 #Usage: myList.sh <MAX_DEEP>
