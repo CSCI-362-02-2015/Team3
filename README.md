@@ -7,6 +7,7 @@ Composed by people of 3 different countries, the best quality of Team 3 relies o
 <li>Danzel Capers (United States)
 <li>Romeo Bellon (Italy)
 </ul>
+
 # Files
 
 myList.sh: lists the top-level directory contents of its containing directory in an html file displayed in a browser.
