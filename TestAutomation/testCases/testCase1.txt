@@ -4,3 +4,4 @@ it "compares the protocol"
 files "fakeDriver.c"
 arguments "https, example.com, foo.git, bob, http, example.com, foo.git, bob"
 expected "https, example.com, foo.git, bob, http, example.com, foo.git, bob"
+end
