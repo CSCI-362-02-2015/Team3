@@ -2,6 +2,6 @@
 function "credential_match"
 it "compares the protocol"
 files "fakeDriver.c"
-arguments "https, example.com, foo.git, bob, https, example.com, foo.git, mary"
-expected "https, example.com, foo.git, bob, https, example.com, foo.git, mary"
+arguments "https example.com foo.git bob https example.co foo.git mary"
+expected "https example.com foo.git bob https example.com foo.git mary"
 end
