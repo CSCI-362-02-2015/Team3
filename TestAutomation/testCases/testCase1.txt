@@ -1,10 +1,6 @@
-﻿//comments
-module “credential“ do
-	describe "credential_match" do
-    	it "compares the protocol" do
-			credentialDriver.c credential.h 
-			https, example.com, foo.git, bob, http, example.com, foo.git, bob
-			expected 0
-	    end
-	end
-end
+module "credential.c"
+function "credential_match"
+it "compares the protocol"
+files "fakeDriver.c"
+arguments "https, example.com, foo.git, bob, http, example.com, foo.git, bob"
+expected "https, example.com, foo.git, bob, http, example.com, foo.git, bob"
