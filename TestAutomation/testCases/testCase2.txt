@@ -8,18 +8,3 @@ module “credential“ do
 	    end
 	end
 end
-
-gcc -Wall -DSHA1_HEADER='"block-sha1/sha1.h"' -I../project/git ../project/git/credential.c 
-
-
-define macro ---> -DSHA1_HEADER='"block-sha1/sha1.h"' 
-add header paths -->  -I../project/git
-
-
-
-find dependencies
-ls -1 2>&- `gcc -M -DSHA1_HEADER='"block-sha1/sha1.h"' -I../project/git ../project/git/credential.c`
-
-gcc -Wall -DSHA1_HEADER='"block-sha1/sha1.h"' -I../project/git credentialDriver.c ../project/git/credential.c ../project/git/credential-cache.c ../project/git/advice.c ../project/git/argv-array.c ../project/git/convert.c ../project/git/gettext.c ../project/git/hashmap.c ../project/git/prompt.c ../project/git/run-command.c ../project/git/strbuf.c ../project/git/string-list.c ../project/git/trace.c ../project/git/url.c ../project/git/wildmatch.c
-
-
