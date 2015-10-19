@@ -1,9 +1,9 @@
-//comments
-module “credential“ do
+ï»¿//comments
+module â€œcredentialâ€œ do
 	describe "credential_match" do
     	it "compares the protocol" do
 			credentialDriver.c credential.h 
-			https, example.com, foo.git, bob, https, otherExample.com, foo.git, bob
+			https, example.com, foo.git, bob, https, example.com, foo.git, mary
 			expected 0
 	    end
 	end
