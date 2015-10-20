@@ -39,6 +39,7 @@ function executeTestCase() {
     echo -e "###################################\n"
 }
 
+
 ROOT=$(pwd) #get project top-level folder full path
 testCasesFiles=("$ROOT/testCases/"*.txt) #get test cases files
 
