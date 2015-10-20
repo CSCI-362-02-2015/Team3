@@ -1,0 +1,32 @@
+MODULE credential.c
+FUNCTION credential_match
+IT compares the protocol
+failed
+	EXPECTED 1
+	OUTPUT 0
+###################################
+
+MODULE credential.c
+FUNCTION credential_match
+IT compares the host
+passed
+###################################
+
+MODULE 
+FUNCTION credential_match
+IT compares the path
+passed
+###################################
+
+MODULE 
+FUNCTION credential_match
+IT compares the username
+passed
+###################################
+
+MODULE 
+FUNCTION credential_match
+IT returns true when every credential field matches
+passed
+###################################
+
