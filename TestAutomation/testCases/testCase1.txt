@@ -1,7 +1,7 @@
 module "credential.c"
 function "credential_match"
 it "compares the protocol"
-files "fakeDriver.c"
+driver "test-credentialMatchDriver"
 arguments "https example.com foo.git bob http example.com foo.git bob"
-expected "https example.com foo.git bob http example.com foo.git bob"
+expected "0"
 end

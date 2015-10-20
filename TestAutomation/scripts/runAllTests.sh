@@ -12,8 +12,8 @@ function executeTestCase() {
             module ) echo "MODULE" $arg ;;
             function ) echo "FUNCTION" $arg ;;
             it ) echo "IT" $arg ;;
-            files ) 
-                echo "FILES" $arg ;;
+            driver ) 
+                echo "DRIVER" $arg ;;
                 # for word in $arg; do
                 #     if [ ${word: -2} == ".c" ]
                 #         then files+=($word)
@@ -33,12 +33,7 @@ function executeTestCase() {
                     fi
                 done ;;
             expected )
-                echo "EXPECTED" $arg
-                for word in $arg; do
-                    if [ ${word: -2} == ".c" ]
-                        then expected+=($word)
-                    fi
-                done ;;
+                echo "EXPECTED" $arg ;;
         esac
     done <"$1" #file named passed as argument
     echo -e "###################################\n"
