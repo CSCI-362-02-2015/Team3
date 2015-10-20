@@ -32,14 +32,13 @@ function executeTestCase() {
         pass_fail="PASSED"
         color="green"
         class="success"
-        echo -e "$IT ==> ${GREEN}PASSED${NC}"
+        echo -e "$ID: $IT ==> ${GREEN}PASSED${NC}"
     else
         pass_fail="FAILED"
         color="red"
         class="danger"
-        echo -e "$IT ==> ${RED}FAIL${NC}"
+        echo -e "$ID: $IT ==> ${RED}FAIL${NC}"
     fi
-    echo $MODULE
     echo "<tbody><tr class='active'><th scope='row'>ID</th><td>$ID</td></tr>
         <tr><th scope='row'>MODULE</th><td>$MODULE</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>$FUNCTION</td></tr>
