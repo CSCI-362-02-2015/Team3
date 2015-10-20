@@ -1,14 +1,14 @@
 #ifndef CREDENTIAL_H
 #define CREDENTIAL_H
 
-#include "string-list.h"
+// #include "string-list.h"
 
 struct credential {
-	struct string_list helpers;
-	unsigned approved:1,
-		 configured:1,
-		 quit:1,
-		 use_http_path:1;
+	// struct string_list helpers;
+	// unsigned approved:1,
+	// 	 configured:1,
+	// 	 quit:1,
+	// 	 use_http_path:1;
 
 	char *username;
 	char *password;
@@ -17,7 +17,7 @@ struct credential {
 	char *path;
 };
 
-#define CREDENTIAL_INIT { STRING_LIST_INIT_DUP }
+// #define CREDENTIAL_INIT { STRING_LIST_INIT_DUP }
 
 void credential_init(struct credential *);
 void credential_clear(struct credential *);

@@ -569,6 +569,7 @@ X =
 
 PROGRAMS += $(patsubst %.o,git-%$X,$(PROGRAM_OBJS))
 
+TEST_PROGRAMS_NEED_X += test-credential
 TEST_PROGRAMS_NEED_X += test-chmtime
 TEST_PROGRAMS_NEED_X += test-ctype
 TEST_PROGRAMS_NEED_X += test-config
@@ -2195,6 +2196,8 @@ perf: all
 	$(MAKE) -C t/perf/ all
 
 .PHONY: test perf
+
+test-credential$X: test-credential.o
 
 test-ctype$X: ctype.o
 
