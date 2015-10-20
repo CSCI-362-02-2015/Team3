@@ -39,7 +39,7 @@ function executeTestCase() {
     echo -e "###################################\n"
 }
 
-ROOT="$(dirname `pwd`)" #get project top-level folder full path
+ROOT=$(pwd) #get project top-level folder full path
 testCasesFiles=("$ROOT/testCases/"*.txt) #get test cases files
 
 cp "$ROOT/testCasesExecutables/"*.c "$ROOT/project/git" #copy drivers to git repository
