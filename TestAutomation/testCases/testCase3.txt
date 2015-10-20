@@ -1,8 +1,8 @@
-id: "003"
+id "003"
 module "credential.c"
 function "credential_match"
 it "compares the path"
 driver "test-credentialMatchDriver"
-arguments "https example.com foo.git bob https example.com foo.git bob"
+arguments "https example.com foo.git bob https example.com bar.git bob"
 expected "0"
 end

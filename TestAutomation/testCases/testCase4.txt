@@ -1,4 +1,4 @@
-id: "004"
+id "004"
 module "credential.c"
 function "credential_match"
 it "compares the username"

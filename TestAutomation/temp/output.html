@@ -1,53 +1,58 @@
 <!doctype html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
       <title>MyList Script</title></head><body><div class='container'><h3>Tests Result</h3><br>
 <div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>
-<tbody><tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
+<tbody><tr class='active'><th scope='row'>ID</th><td>001</td></tr>
+        <tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>credential_match</td></tr>
         <tr><th scope='row'>IT</th><td>compares the protocol</td></tr>
         <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob http example.com foo.git bob</td></tr>
-        <tr><th scope='row'>EXPECTED</th><td>1</td></tr>
+        <tr><th scope='row'>EXPECTED</th><td>0</td></tr>
         <tr><th scope='row'>RESULT</th><td>0</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='danger'><b style='color:red;'>FAILED</b></td></tr>
+        <tr class='success'><th scope='row'>OUTPUT</th><td><b style='color:green;'>PASSED</b></td></tr>
       </tbody>
 </table></div><br>
 <div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>
-<tbody><tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
+<tbody><tr class='active'><th scope='row'>ID</th><td>002</td></tr>
+        <tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>credential_match</td></tr>
         <tr><th scope='row'>IT</th><td>compares the host</td></tr>
-        <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https other Example.com foo.git bob</td></tr>
+        <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https otherExample.com foo.git bob</td></tr>
         <tr><th scope='row'>EXPECTED</th><td>0</td></tr>
         <tr><th scope='row'>RESULT</th><td>0</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='success'><b style='color:green;'>PASSED</b></td></tr>
+        <tr class='success'><th scope='row'>OUTPUT</th><td><b style='color:green;'>PASSED</b></td></tr>
       </tbody>
 </table></div><br>
 <div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>
-<tbody><tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
+<tbody><tr class='active'><th scope='row'>ID</th><td>003</td></tr>
+        <tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>credential_match</td></tr>
         <tr><th scope='row'>IT</th><td>compares the path</td></tr>
-        <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https example.com foo.git bob</td></tr>
+        <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https example.com bar.git bob</td></tr>
         <tr><th scope='row'>EXPECTED</th><td>0</td></tr>
-        <tr><th scope='row'>RESULT</th><td>1</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='danger'><b style='color:red;'>FAILED</b></td></tr>
+        <tr><th scope='row'>RESULT</th><td>0</td></tr>
+        <tr class='success'><th scope='row'>OUTPUT</th><td><b style='color:green;'>PASSED</b></td></tr>
       </tbody>
 </table></div><br>
 <div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>
-<tbody><tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
+<tbody><tr class='active'><th scope='row'>ID</th><td>004</td></tr>
+        <tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>credential_match</td></tr>
         <tr><th scope='row'>IT</th><td>compares the username</td></tr>
         <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https example.co foo.git mary</td></tr>
         <tr><th scope='row'>EXPECTED</th><td>0</td></tr>
         <tr><th scope='row'>RESULT</th><td>0</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='success'><b style='color:green;'>PASSED</b></td></tr>
+        <tr class='success'><th scope='row'>OUTPUT</th><td><b style='color:green;'>PASSED</b></td></tr>
       </tbody>
 </table></div><br>
 <div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>
-<tbody><tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
+<tbody><tr class='active'><th scope='row'>ID</th><td>005</td></tr>
+        <tr><th scope='row'>MODULE</th><td>credential.c</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>credential_match</td></tr>
         <tr><th scope='row'>IT</th><td>returns true when every credential field matches</td></tr>
         <tr><th scope='row'>ARGUMENTS</th><td>https example.com foo.git bob https example.com foo.git bob</td></tr>
         <tr><th scope='row'>EXPECTED</th><td>1</td></tr>
         <tr><th scope='row'>RESULT</th><td>1</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='success'><b style='color:green;'>PASSED</b></td></tr>
+        <tr class='success'><th scope='row'>OUTPUT</th><td><b style='color:green;'>PASSED</b></td></tr>
       </tbody>
 </table></div><br>
 </div></body></html>

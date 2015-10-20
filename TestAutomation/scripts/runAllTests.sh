@@ -40,14 +40,14 @@ function executeTestCase() {
         echo -e "$IT ==> ${RED}FAIL${NC}"
     fi
     echo $MODULE
-    echo "<tbody><tr><th scope='row'>ID</th><td>$ID</td></tr>
+    echo "<tbody><tr class='active'><th scope='row'>ID</th><td>$ID</td></tr>
         <tr><th scope='row'>MODULE</th><td>$MODULE</td></tr>
         <tr><th scope='row'>FUNCTION</th><td>$FUNCTION</td></tr>
         <tr><th scope='row'>IT</th><td>$IT</td></tr>
         <tr><th scope='row'>ARGUMENTS</th><td>$ARGUMENTS</td></tr>
         <tr><th scope='row'>EXPECTED</th><td>$EXPECTED</td></tr>
         <tr><th scope='row'>RESULT</th><td>$result</td></tr>
-        <tr><th scope='row'>OUTPUT</th><td class='$class'><b style='color:$color;'>$pass_fail</b></td></tr>
+        <tr class='$class'><th scope='row'>OUTPUT</th><td><b style='color:$color;'>$pass_fail</b></td></tr>
       </tbody>" >> "$ROOT/temp/output.html"
 }
 
