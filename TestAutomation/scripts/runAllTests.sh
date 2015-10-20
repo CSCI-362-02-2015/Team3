@@ -6,6 +6,7 @@ NC='\033[0m' # No Color
 function executeTestCase() {
 # it goes through every line of a test case, get the executable, the parameters,
 # runs it, and compares the result with the expected outcome
+    ID=''
     MODULE=''
     FUNCTION=''
     IT=''
@@ -16,6 +17,7 @@ function executeTestCase() {
         var=$(echo "$line" | awk '{print $1;}')
         arg=$(echo "$line" | awk -F\" '{print $2}')
         case $var in
+            id ) ID=$arg ;;
             module ) MODULE=$arg ;;
             function ) FUNCTION=$arg ;;
             it ) IT=$arg ;;
@@ -26,19 +28,27 @@ function executeTestCase() {
     done <"$1" #file named passed as argument
 
     result=$(./$DRIVER $ARGUMENTS)
-    echo "MODULE $MODULE" >> "$ROOT/temp/output.txt"
-    echo "FUNCTION $FUNCTION" >> "$ROOT/temp/output.txt"
-    echo "IT $IT" >> "$ROOT/temp/output.txt"
     if [ $result == $EXPECTED ]; then
-        echo "passed" >> "$ROOT/temp/output.txt"
+        pass_fail="PASSED"
+        color="green"
+        class="success"
         echo -e "$IT ==> ${GREEN}PASSED${NC}"
     else
-        echo "failed" >> "$ROOT/temp/output.txt"
-        echo -e "\tEXPECTED $EXPECTED" >> "$ROOT/temp/output.txt"
-        echo -e "\tOUTPUT $result" >> "$ROOT/temp/output.txt"
+        pass_fail="FAILED"
+        color="red"
+        class="danger"
         echo -e "$IT ==> ${RED}FAIL${NC}"
     fi
-    echo -e "###################################\n" >> "$ROOT/temp/output.txt"
+    echo $MODULE
+    echo "<tbody><tr><th scope='row'>ID</th><td>$ID</td></tr>
+        <tr><th scope='row'>MODULE</th><td>$MODULE</td></tr>
+        <tr><th scope='row'>FUNCTION</th><td>$FUNCTION</td></tr>
+        <tr><th scope='row'>IT</th><td>$IT</td></tr>
+        <tr><th scope='row'>ARGUMENTS</th><td>$ARGUMENTS</td></tr>
+        <tr><th scope='row'>EXPECTED</th><td>$EXPECTED</td></tr>
+        <tr><th scope='row'>RESULT</th><td>$result</td></tr>
+        <tr><th scope='row'>OUTPUT</th><td class='$class'><b style='color:$color;'>$pass_fail</b></td></tr>
+      </tbody>" >> "$ROOT/temp/output.html"
 }
 
 
@@ -52,12 +62,18 @@ echo "Compiling files.. (it will take around 2 minutes if it is your first compi
 make &> /dev/null #redirect the output to not spam the terminal
 echo -e "Finished.\n"
 
-echo -e "Number of test cases: ${testCasesFiles[@]} \n"
+echo -e "Number of test cases: ${#testCasesFiles[@]} \n"
 
-rm "$ROOT/temp/output.txt"
+rm "$ROOT/temp/output.html"
+
+echo "<!doctype html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+      <title>MyList Script</title></head><body><div class='container'><h3>Tests Result</h3><br>" >> "$ROOT/temp/output.html"
 
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
+    echo "<div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>" >> "$ROOT/temp/output.html"
     executeTestCase "$testCaseFile"
+    echo "</table></div><br>" >> "$ROOT/temp/output.html"
 done
-echo
-firefox "$ROOT/temp/output.txt" &> /dev/null
+echo "</div></body></html>" >> "$ROOT/temp/output.html"
+
+firefox "$ROOT/temp/output.html" &> /dev/null

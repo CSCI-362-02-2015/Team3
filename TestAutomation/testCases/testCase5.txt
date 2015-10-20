@@ -1,4 +1,4 @@
-﻿module "credential.c"
+module "credential.c"
 function "credential_match"
 it "returns true when every credential field matches"
 driver "test-credentialMatchDriver"

@@ -2,6 +2,6 @@ module "credential.c"
 function "credential_match"
 it "compares the host"
 driver "test-credentialMatchDriver"
-arguments "https example.com foo.git bob https otherExample.com foo.git bob"
+arguments "https example.com foo.git bob https other Example.com foo.git bob"
 expected "0"
 end
