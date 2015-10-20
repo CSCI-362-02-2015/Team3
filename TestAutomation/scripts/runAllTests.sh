@@ -40,7 +40,6 @@ function executeTestCase() {
 }
 
 ROOT="$(dirname `pwd`)" #get project top-level folder full path
-echo $ROOT
 testCasesFiles=("$ROOT/testCases/"*.txt) #get test cases files
 
 cp "$ROOT/testCasesExecutables/"*.c "$ROOT/project/git" #copy drivers to git repository
@@ -50,7 +49,7 @@ echo "Compiling files.. (it will take around 2 minutes if it is your first compi
 make &> /dev/null #redirect the output to not spam the terminal
 echo -e "Finished.\n"
 
-echo -e "Number of test cases: ${#testCasesFiles[@]} \n"
+echo -e "Number of test cases: ${testCasesFiles[@]} \n"
 
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
     executeTestCase "$testCaseFile"
