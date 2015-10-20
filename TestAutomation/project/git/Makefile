@@ -569,7 +569,7 @@ X =
 
 PROGRAMS += $(patsubst %.o,git-%$X,$(PROGRAM_OBJS))
 
-TEST_PROGRAMS_NEED_X += test-credential
+TEST_PROGRAMS_NEED_X += test-credentialMatchDriver
 TEST_PROGRAMS_NEED_X += test-chmtime
 TEST_PROGRAMS_NEED_X += test-ctype
 TEST_PROGRAMS_NEED_X += test-config
@@ -2197,7 +2197,7 @@ perf: all
 
 .PHONY: test perf
 
-test-credential$X: test-credential.o
+test-credentialMatchDriver$X: test-credentialMatchDriver.o
 
 test-ctype$X: ctype.o
 

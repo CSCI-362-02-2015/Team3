@@ -8,8 +8,8 @@ struct credential *CredentialCreate(char *protocol,char *host,char *path,char *u
 void printCredencial(struct credential *c);
 
 int main(int argc, char *argv[]) {
-	struct credential *cred_A = Credential_create(argv[1], argv[2], argv[3], argv[4]);
-	struct credential *cred_B = Credential_create(argv[5], argv[6], argv[7], argv[8]);
+	struct credential *cred_A = CredentialCreate(argv[1], argv[2], argv[3], argv[4]);
+	struct credential *cred_B = CredentialCreate(argv[5], argv[6], argv[7], argv[8]);
 	printf("%d\n", credential_match(cred_A, cred_B));
 	return 0;
 }
