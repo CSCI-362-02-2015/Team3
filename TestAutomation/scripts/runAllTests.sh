@@ -1,5 +1,6 @@
 #!/bin/bash
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 function executeTestCase() {
@@ -30,10 +31,12 @@ function executeTestCase() {
     echo "IT $IT" >> "$ROOT/temp/output.txt"
     if [ $result == $EXPECTED ]; then
         echo "passed" >> "$ROOT/temp/output.txt"
+        echo -e "$IT ==> ${GREEN}PASSED${NC}"
     else
         echo "failed" >> "$ROOT/temp/output.txt"
         echo -e "\tEXPECTED $EXPECTED" >> "$ROOT/temp/output.txt"
         echo -e "\tOUTPUT $result" >> "$ROOT/temp/output.txt"
+        echo -e "$IT ==> ${RED}FAIL${NC}"
     fi
     echo -e "###################################\n" >> "$ROOT/temp/output.txt"
 }
@@ -56,5 +59,5 @@ rm "$ROOT/temp/output.txt"
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
     executeTestCase "$testCaseFile"
 done
-
+echo
 firefox "$ROOT/temp/output.txt" &> /dev/null
