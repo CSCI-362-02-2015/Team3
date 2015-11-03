@@ -72,6 +72,7 @@ done
 
 if [ $N_FAILS -gt 0 ]; then
    echo "<br><br>" >> "$ROOT/temp/output.html"
+   echo "<h4>$N_FAILS test(s) failed.</h4><br>" >> "$ROOT/temp/output.html"
    cat "$ROOT/temp/fails.txt" >> "$ROOT/temp/output.html"
 fi
 
