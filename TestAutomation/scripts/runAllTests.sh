@@ -2,7 +2,7 @@
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-
+N_FAILS=0
 function executeTestCase() {
 # it goes through every line of a test case, get the executable, the parameters,
 # runs it, and compares the result with the expected outcome
@@ -29,29 +29,27 @@ function executeTestCase() {
 
     result=$(./$DRIVER $ARGUMENTS)
     if [ $result == $EXPECTED ]; then
-        pass_fail="PASSED"
-        color="green"
-        class="success"
         echo -e "$ID: $IT ==> ${GREEN}PASSED${NC}"
+        echo "<font color='green'>P &nbsp;</font>" >> "$ROOT/temp/output.html"
     else
-        pass_fail="FAILED"
-        color="red"
-        class="danger"
+        N_FAILS=$((N_FAILS+1))
         echo -e "$ID: $IT ==> ${RED}FAIL${NC}"
+        echo "<font color='red'>FAILED &nbsp;</font>" >> "$ROOT/temp/output.html"
+        echo "<p><font color='red'>
+                ID: $ID<br>
+                MODULE: $MODULE<br>
+                FUNCTION: $FUNCTION<br>
+                IT: $IT<br>
+                ARGUMENTS: $ARGUMENTS<br>
+                EXPECTED: $EXPECTED<br>
+                RESULT: $result<br><br>
+             </font></p>" >> "$ROOT/temp/fails.txt"
     fi
-    echo "<tbody><tr class='active'><th scope='row'>ID</th><td>$ID</td></tr>
-        <tr><th scope='row'>MODULE</th><td>$MODULE</td></tr>
-        <tr><th scope='row'>FUNCTION</th><td>$FUNCTION</td></tr>
-        <tr><th scope='row'>IT</th><td>$IT</td></tr>
-        <tr><th scope='row'>ARGUMENTS</th><td>$ARGUMENTS</td></tr>
-        <tr><th scope='row'>EXPECTED</th><td>$EXPECTED</td></tr>
-        <tr><th scope='row'>RESULT</th><td>$result</td></tr>
-        <tr class='$class'><th scope='row'>OUTPUT</th><td><b style='color:$color;'>$pass_fail</b></td></tr>
-      </tbody>" >> "$ROOT/temp/output.html"
 }
 
 
 ROOT=$(pwd) #get project top-level folder full path
+rm "$ROOT/temp/"* #remove temp files
 testCasesFiles=("$ROOT/testCases/"*.txt) #get test cases files
 
 cp "$ROOT/testCasesExecutables/"*.c "$ROOT/project/git" #copy drivers to git repository
@@ -63,16 +61,20 @@ echo -e "Finished.\n"
 
 echo -e "Number of test cases: ${#testCasesFiles[@]} \n"
 
-rm "$ROOT/temp/output.html"
 
 echo "<!doctype html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-      <title>MyList Script</title></head><body><div class='container'><h3>Tests Result</h3><br>" >> "$ROOT/temp/output.html"
+      <title>MyList Script</title></head><body><div class='container'><h1>Tests Result</h1><br>" >> "$ROOT/temp/output.html"
+echo "<h3>Number of test cases: ${#testCasesFiles[@]}</h3>" >> "$ROOT/temp/output.html"
 
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
-    echo "<div class='row' style='border: 1px solid #E1E1E8; border-radius:4px;'><table style='margin-bottom:0;' class='table'>" >> "$ROOT/temp/output.html"
     executeTestCase "$testCaseFile"
-    echo "</table></div><br>" >> "$ROOT/temp/output.html"
 done
+
+if [ $N_FAILS -gt 0 ]; then
+   echo "<br><br>" >> "$ROOT/temp/output.html"
+   cat "$ROOT/temp/fails.txt" >> "$ROOT/temp/output.html"
+fi
+
 echo "</div></body></html>" >> "$ROOT/temp/output.html"
 
 firefox "$ROOT/temp/output.html" &> /dev/null

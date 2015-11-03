@@ -1,0 +1,8 @@
+id "010"
+module "url.c"
+function "is_urlschemechar"
+it "allows numbers in the first position of the url"
+driver "test-urlSchemecharDriver"
+arguments "1 8"
+expected "1"
+end

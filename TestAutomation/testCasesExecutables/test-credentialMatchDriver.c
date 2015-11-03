@@ -1,3 +1,12 @@
+/*
+Driver to test the function 
+	int credential_match(const struct credential *want, const struct credential *have)
+		want, have: credentials to be matched
+The driver receives 8 strings as parameter to create two credentials.
+Each credential contains (protocol, host, path, username)
+e.g: "https example.com foo.git bob http ex.com bar.git ana"
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
