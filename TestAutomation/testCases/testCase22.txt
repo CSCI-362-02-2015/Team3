@@ -1,0 +1,8 @@
+id "022"
+module "color.c"
+function "git_config_colorbool"
+it "returns the automatic color(2) if var is not empty, but the value is empty"
+driver "test-gitConfigColorboolDriver"
+arguments "core.color """
+expected "2"
+end

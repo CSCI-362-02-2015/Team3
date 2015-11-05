@@ -1,0 +1,8 @@
+id "020"
+module "color.c"
+function "git_config_colorbool"
+it "returns the automatic color(2) if the value is equal to 'auto'"
+driver "test-gitConfigColorboolDriver"
+arguments "core.color auto"
+expected "2"
+end
