@@ -1,0 +1,8 @@
+id "014"
+module "url.c"
+function "is_url"
+it "verifies if url has the pattern '://'"
+driver "test-isUrlDriver"
+arguments "https:myurl.com"
+expected "0"
+end

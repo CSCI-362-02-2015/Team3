@@ -569,6 +569,8 @@ X =
 
 PROGRAMS += $(patsubst %.o,git-%$X,$(PROGRAM_OBJS))
 
+TEST_PROGRAMS_NEED_X += test-estimateBisectStepsDriver
+TEST_PROGRAMS_NEED_X += test-isUrlDriver
 TEST_PROGRAMS_NEED_X += test-urlSchemecharDriver
 TEST_PROGRAMS_NEED_X += test-credentialMatchDriver
 TEST_PROGRAMS_NEED_X += test-chmtime
@@ -2198,8 +2200,10 @@ perf: all
 
 .PHONY: test perf
 
-test-credentialMatchDriver$X: test-credentialMatchDriver.o
+test-estimateBisectStepsDriver$X: test-estimateBisectStepsDriver.o
+test-isUrlDriver$X: test-isUrlDriver.o
 test-urlSchemecharDriver$X: test-urlSchemecharDriver.o
+test-credentialMatchDriver$X: test-credentialMatchDriver.o
 
 test-ctype$X: ctype.o
 
