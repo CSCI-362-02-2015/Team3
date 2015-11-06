@@ -8,8 +8,6 @@ e.g: ./test-gitConfigColorboolDriver core.color never
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <assert.h>
 #include "color.h"
 
 int main(int argc, char *argv[]) {

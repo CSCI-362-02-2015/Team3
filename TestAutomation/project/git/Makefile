@@ -569,6 +569,8 @@ X =
 
 PROGRAMS += $(patsubst %.o,git-%$X,$(PROGRAM_OBJS))
 
+TEST_PROGRAMS_NEED_X += test-colorIsNil
+TEST_PROGRAMS_NEED_X += test-commitListCount
 TEST_PROGRAMS_NEED_X += test-gitConfigColorboolDriver
 TEST_PROGRAMS_NEED_X += test-estimateBisectStepsDriver
 TEST_PROGRAMS_NEED_X += test-isUrlDriver
@@ -2201,6 +2203,8 @@ perf: all
 
 .PHONY: test perf
 
+test-colorIsNil$X: test-colorIsNil.o
+test-commitListCount$X: test-commitListCount.o
 test-gitConfigColorboolDriver$X: test-gitConfigColorboolDriver.o
 test-estimateBisectStepsDriver$X: test-estimateBisectStepsDriver.o
 test-isUrlDriver$X: test-isUrlDriver.o

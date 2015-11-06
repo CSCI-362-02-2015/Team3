@@ -78,4 +78,4 @@ fi
 
 echo "</div></body></html>" >> "$ROOT/temp/output.html"
 
-firefox "$ROOT/temp/output.html" &> /dev/null
+# firefox "$ROOT/temp/output.html" &> /dev/null
