@@ -30,20 +30,29 @@ function executeTestCase() {
     result=$(./$DRIVER $ARGUMENTS)
     if [ $result == $EXPECTED ]; then
         echo -e "$ID: $REQUIREMENT ==> ${GREEN}PASSED${NC}"
-        echo "<font color='green'>P &nbsp;</font>" >> "$ROOT/temp/output.html"
+        echo "<tr>
+          <th scope='row'>$ID</th>
+          <td>$MODULE</td>
+          <td>$FUNCTION</td>
+          <td>$REQUIREMENT</td>
+          <td>$ARGUMENTS</td>
+          <td>$EXPECTED</td>
+          <td>$result</td>
+          <td style='background-color:#26A65B; color:#fff'>PASSED</td>
+        </tr>" >> "$ROOT/temp/output.html"
     else
         N_FAILS=$((N_FAILS+1))
         echo -e "$ID: $REQUIREMENT ==> ${RED}FAIL${NC}"
-        echo "<font color='red'>FAILED &nbsp;</font>" >> "$ROOT/temp/output.html"
-        echo "<p><font color='red'>
-                ID: $ID<br>
-                MODULE: $MODULE<br>
-                FUNCTION: $FUNCTION<br>
-                REQUIREMENT: $REQUIREMENT<br>
-                ARGUMENTS: $ARGUMENTS<br>
-                EXPECTED: $EXPECTED<br>
-                RESULT: $result<br><br>
-             </font></p>" >> "$ROOT/temp/fails.txt"
+        echo "<tr class='danger'>
+          <th scope='row'>$ID</th>
+          <td>$MODULE</td>
+          <td>$FUNCTION</td>
+          <td>$REQUIREMENT</td>
+          <td>$ARGUMENTS</td>
+          <td>$EXPECTED</td>
+          <td>$result</td>
+          <td><code><b>FAILED</b></code></td>
+        </tr>" >> "$ROOT/temp/output.html"
     fi
 }
 
@@ -66,9 +75,22 @@ echo "<!doctype html><html><head><link rel='stylesheet' href='https://maxcdn.boo
       <title>MyList Script</title></head><body><div class='container'><h1>Tests Result</h1><br>" >> "$ROOT/temp/output.html"
 echo "<h3>Number of test cases: ${#testCasesFiles[@]}</h3>" >> "$ROOT/temp/output.html"
 
+echo "<table class='table table-bordered'><thead><tr>
+      <th>ID</th>
+      <th>Module</th>
+      <th>Function</th>
+      <th>Requirement</th>
+      <th>Arguments</th>
+      <th>Expected</th>
+      <th>Result</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>" >> "$ROOT/temp/output.html"
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
     executeTestCase "$testCaseFile"
 done
+echo "</tbody></table>" >> "$ROOT/temp/output.html"
 
 if [ $N_FAILS -gt 0 ]; then
    echo "<br><br>" >> "$ROOT/temp/output.html"
@@ -78,4 +100,4 @@ fi
 
 echo "</div></body></html>" >> "$ROOT/temp/output.html"
 
-# firefox "$ROOT/temp/output.html" &> /dev/null
+firefox "$ROOT/temp/output.html" &> /dev/null
