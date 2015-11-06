@@ -1,5 +1,6 @@
 #git repository as a whole
 TestAutomation/project/git
+TestAutomation/temp
 
 # Object files
 *.o

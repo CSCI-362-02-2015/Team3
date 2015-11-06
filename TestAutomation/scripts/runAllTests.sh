@@ -90,14 +90,7 @@ echo "<table class='table table-bordered'><thead><tr>
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
     executeTestCase "$testCaseFile"
 done
-echo "</tbody></table>" >> "$ROOT/temp/output.html"
-
-if [ $N_FAILS -gt 0 ]; then
-   echo "<br><br>" >> "$ROOT/temp/output.html"
-   echo "<h4>$N_FAILS test(s) failed.</h4><br>" >> "$ROOT/temp/output.html"
-   cat "$ROOT/temp/fails.txt" >> "$ROOT/temp/output.html"
-fi
-
-echo "</div></body></html>" >> "$ROOT/temp/output.html"
+echo "</tbody></table>
+    </div></body></html>" >> "$ROOT/temp/output.html"
 
 firefox "$ROOT/temp/output.html" &> /dev/null
