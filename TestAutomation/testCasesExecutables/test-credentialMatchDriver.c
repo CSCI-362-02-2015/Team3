@@ -16,6 +16,8 @@ Driver:
 		./test-credentialMatchDriver https example.com foo.git bob http ex.com bar.git ana
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "credential.h"
 

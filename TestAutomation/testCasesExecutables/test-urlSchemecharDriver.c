@@ -15,6 +15,8 @@ Driver:
 	Usage:
 		./test-urlSchemechar 1 a
 */
+#include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "url.h"
 

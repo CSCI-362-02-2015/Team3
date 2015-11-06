@@ -15,6 +15,8 @@ Driver:
 		./test-isUrlDriver https://myurl.com
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "url.h"
 
 

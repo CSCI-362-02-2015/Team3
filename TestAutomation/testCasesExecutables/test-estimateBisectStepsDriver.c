@@ -15,6 +15,8 @@ Driver:
 		./test-estimateBisectStepsDriver 5
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "bisect.h"
 

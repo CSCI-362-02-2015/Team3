@@ -1,7 +1,7 @@
 id "013"
 module "url.c"
 function "is_url"
-requirement "verifies if the first char of the url is not a special character"
+requirement "return 0 if the first chararacter of the url is a special character(+ - .)"
 driver "test-isUrlDriver"
 arguments "+https://myurl.com"
 expected "0"

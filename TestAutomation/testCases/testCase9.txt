@@ -1,7 +1,7 @@
 id "009"
 module "url.c"
 function "is_urlschemechar"
-requirement "allows special characters in the url that is not in the first position"
+requirement "allows special characters in the url in positions that are not first one"
 driver "test-urlSchemecharDriver"
 arguments "0 +"
 expected "1"
