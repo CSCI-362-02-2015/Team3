@@ -1,20 +1,25 @@
 /*
-Driver to test the function 
+Tested Module:
+	credential.c
+
+Tested the function: 
 	int credential_match(const struct credential *want, const struct credential *have)
-		want, have: credentials to be matched
-The driver receives 8 strings as parameter to create two credentials.
-Each credential contains (protocol, host, path, username)
-e.g: "https example.com foo.git bob http ex.com bar.git ana"
+		want and have are credentials to be matched
+
+Driver:
+	Input:
+		receives 8 strings as parameter to create two credentials.
+		Each credential contains (protocol, host, path, username)
+	Output:
+		returns a int indicating if the credentials matched (1 if they matched, otherwise 0)
+	Usage:
+		./test-credentialMatchDriver https example.com foo.git bob http ex.com bar.git ana
 */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <assert.h>
-#include <string.h>
 #include "credential.h"
 
 struct credential *CredentialCreate(char *protocol,char *host,char *path,char *username);
-void printCredencial(struct credential *c);
 
 int main(int argc, char *argv[]) {
 	struct credential *cred_A = CredentialCreate(argv[1], argv[2], argv[3], argv[4]);
@@ -34,7 +39,4 @@ struct credential *CredentialCreate(char *protocol,char *host,char *path,char *u
 	c->path = strdup(path);
 
     return c;
-}
-void printCredencial(struct credential *c) {
-	printf("%s %s %s %s\n", c->protocol, c->host, c->path, c->username);
 }

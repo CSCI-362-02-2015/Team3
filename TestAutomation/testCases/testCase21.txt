@@ -1,7 +1,7 @@
 id "021"
 module "color.c"
 function "git_config_colorbool"
-it "returns -1 if var and value are empty"
+requirement "returns -1 if var and value are empty"
 driver "test-gitConfigColorboolDriver"
 arguments """ """
 expected "-1"

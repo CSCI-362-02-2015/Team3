@@ -1,14 +1,20 @@
 /*
-Driver to test the function 
-	int estimate_bisect_steps(int all)
+Tested Module:
+	bisect.c
 
-The driver receives a int as parameter to estimates the bisect steps
-e.g: ./test-estimateBisectSteps 5
+Tested the function: 
+	int estimate_bisect_steps(int all)
+		all is the number of piece of data to process
+
+Driver:
+	Input:
+		receives a int as parameter to estimates the bisect steps
+	Output:
+		returns the number of steps left
+	Usage:
+		./test-estimateBisectStepsDriver 5
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <assert.h>
 #include "bisect.h"
 

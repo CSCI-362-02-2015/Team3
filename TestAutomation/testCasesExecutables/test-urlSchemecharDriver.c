@@ -1,17 +1,21 @@
 /*
-Driver to test the function 
+Tested Module:
+	url.c
+
+Tested the function: 
 	int is_urlschemechar(int first_flag, int ch)
 		first_flag: indicates if the character ch is the first of the url
 		ch: a character of the url
-The driver receives:
-	int: that indicates if it is the first character of the string
-	char: which is the character to be verified
-e.g: "1 a"
+
+Driver:
+	Input:
+		receives a int indicating if it is the first character, and a character of an url to be validated
+	Output:
+		returns 1 if url character is valid, otherwise 0
+	Usage:
+		./test-urlSchemechar 1 a
 */
-#include <stdio.h>
-#include <stdlib.h>
 #include <assert.h>
-#include <string.h>
 #include "url.h"
 
 

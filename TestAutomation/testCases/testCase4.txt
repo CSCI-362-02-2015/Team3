@@ -1,7 +1,7 @@
 id "004"
 module "credential.c"
 function "credential_match"
-it "compares the username"
+requirement "compares the username"
 driver "test-credentialMatchDriver"
 arguments "https example.com foo.git bob https example.co foo.git mary"
 expected "0"

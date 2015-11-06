@@ -1,7 +1,7 @@
 id "019"
 module "color.c"
 function "git_config_colorbool"
-it "returns 1 if the value is equal to 'always'"
+requirement "returns 1 if the value is equal to 'always'"
 driver "test-gitConfigColorboolDriver"
 arguments "core.color always"
 expected "1"

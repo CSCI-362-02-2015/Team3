@@ -1,15 +1,21 @@
 /*
-Driver to test the function 
-	unsigned commit_list_count(const struct commit_list *l)
+Tested Module:
+	commit.c
 
-The driver receives a int indicating the number of items that should be included in the list
-e.g: ./test-commitListCount 1
+Tested the function: 
+	unsigned commit_list_count(const struct commit_list *l)
+		l is a pointer to a commit list struct
+
+Driver:
+	Input:
+		receives a int indicating the number of items that should be included in the list
+	Output:
+		returns number of items in the list
+	Usage:
+		./test-commitListCountDriver 1
 */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <assert.h>
-#include <string.h>
 #include "commit.c"
 
 

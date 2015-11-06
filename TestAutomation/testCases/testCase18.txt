@@ -1,7 +1,7 @@
 id "018"
 module "color.c"
 function "git_config_colorbool"
-it "returns 0 if the value is equal to 'never'"
+requirement "returns 0 if the value is equal to 'never'"
 driver "test-gitConfigColorboolDriver"
 arguments "core.color never"
 expected "0"

@@ -1,7 +1,7 @@
 id "026"
 module "commit.c"
 function "commit_list_count"
-it "returns the number of items in the commit list if it is not empty"
+requirement "returns the number of items in the commit list if it is not empty"
 driver "test-commitListCount"
 arguments "4"
 expected "4"

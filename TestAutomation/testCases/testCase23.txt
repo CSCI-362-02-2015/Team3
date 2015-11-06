@@ -1,7 +1,7 @@
 id "023"
 module "color.c"
 function "color_is_nil"
-it "returns 1 if color is nil"
+requirement "returns 1 if color is nil"
 driver "test-colorIsNil"
 arguments "NIL"
 expected "1"

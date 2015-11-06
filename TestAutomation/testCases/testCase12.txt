@@ -1,7 +1,7 @@
 id "012"
 module "url.c"
 function "is_url"
-it "verifies if url is not empty"
+requirement "verifies if url is not empty"
 driver "test-isUrlDriver"
 arguments ""
 expected "0"

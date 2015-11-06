@@ -9,7 +9,7 @@ function executeTestCase() {
     ID=''
     MODULE=''
     FUNCTION=''
-    IT=''
+    REQUIREMENT=''
     DRIVER=''
     ARGUMENTS=''
     EXPECTED=''
@@ -20,7 +20,7 @@ function executeTestCase() {
             id ) ID=$arg ;;
             module ) MODULE=$arg ;;
             function ) FUNCTION=$arg ;;
-            it ) IT=$arg ;;
+            requirement ) REQUIREMENT=$arg ;;
             driver ) DRIVER=$arg ;;
             arguments ) ARGUMENTS=$arg ;;
             expected ) EXPECTED=$arg ;;
@@ -29,17 +29,17 @@ function executeTestCase() {
 
     result=$(./$DRIVER $ARGUMENTS)
     if [ $result == $EXPECTED ]; then
-        echo -e "$ID: $IT ==> ${GREEN}PASSED${NC}"
+        echo -e "$ID: $REQUIREMENT ==> ${GREEN}PASSED${NC}"
         echo "<font color='green'>P &nbsp;</font>" >> "$ROOT/temp/output.html"
     else
         N_FAILS=$((N_FAILS+1))
-        echo -e "$ID: $IT ==> ${RED}FAIL${NC}"
+        echo -e "$ID: $REQUIREMENT ==> ${RED}FAIL${NC}"
         echo "<font color='red'>FAILED &nbsp;</font>" >> "$ROOT/temp/output.html"
         echo "<p><font color='red'>
                 ID: $ID<br>
                 MODULE: $MODULE<br>
                 FUNCTION: $FUNCTION<br>
-                IT: $IT<br>
+                REQUIREMENT: $REQUIREMENT<br>
                 ARGUMENTS: $ARGUMENTS<br>
                 EXPECTED: $EXPECTED<br>
                 RESULT: $result<br><br>

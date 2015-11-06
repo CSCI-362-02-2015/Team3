@@ -1,7 +1,7 @@
 id "015"
 module "bisect.c"
 function "estimate_bisect_steps"
-it "returns 0 if the parameter n is less than 3"
+requirement "returns 0 if the parameter n is less than 3"
 driver "test-estimateBisectStepsDriver"
 arguments "2"
 expected "0"

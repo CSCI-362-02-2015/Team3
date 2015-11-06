@@ -1,15 +1,20 @@
 /*
-Driver to test the function 
-	int is_url(const char *url)
+Tested Module:
+	url.c
 
-The driver receives:
-	char*: url to be verified
-e.g: "https://myurl.com"
+Tested the function: 
+	int is_url(const char *url)
+		url is a string to be validated
+
+Driver:
+	Input:
+		receives a url (string) to be validated
+	Output:
+		returns 1 if string is a valid url, otherwise 0
+	Usage:
+		./test-isUrlDriver https://myurl.com
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <string.h>
+
 #include "url.h"
 
 
