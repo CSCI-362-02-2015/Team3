@@ -1030,4 +1030,5 @@ int estimate_bisect_steps(int all)
 	x = all - e;
 
 	return (e < 3 * x) ? n : n - 1;
+	// return n; //code for fail injection 4
 }

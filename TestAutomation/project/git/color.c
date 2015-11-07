@@ -280,6 +280,7 @@ int git_config_colorbool(const char *var, const char *value)
 
 	/* any normal truth value defaults to 'auto' */
 	return GIT_COLOR_AUTO;
+	// return GIT_COLOR_RED; //code for fail injection 5
 }
 
 static int check_auto_color(void)

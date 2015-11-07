@@ -27,10 +27,8 @@ int credential_match(const struct credential *want,
 		     const struct credential *have)
 {
 #define CHECK(x) (!want->x || (have->x && !strcmp(want->x, have->x)))
-	return CHECK(protocol) &&
-	       CHECK(host) &&
-	       CHECK(path) &&
-	       CHECK(username);
+	return CHECK(protocol) && CHECK(host) && CHECK(path) && CHECK(username);
+	// return CHECK(protocol) && CHECK(path) && CHECK(username); //code for fail injection 1
 #undef CHECK
 }
 

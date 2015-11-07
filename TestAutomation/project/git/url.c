@@ -12,6 +12,7 @@ int is_urlschemechar(int first_flag, int ch)
 	 */
 	int alphanumeric, special;
 	alphanumeric = ch > 0 && isalnum(ch);
+	// alphanumeric = ch > 0 && isalpha(ch); //code for fail injection 2
 	special = ch == '+' || ch == '-' || ch == '.';
 	return alphanumeric || (!first_flag && special);
 }
@@ -20,6 +21,7 @@ int is_url(const char *url)
 {
 	/* Is "scheme" part reasonable? */
 	if (!url || !is_urlschemechar(1, *url++))
+	// if (!url) //code for fail injection 3
 		return 0;
 	while (*url && *url != ':') {
 		if (!is_urlschemechar(0, *url++))
