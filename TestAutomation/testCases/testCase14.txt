@@ -1,7 +1,7 @@
 id "014"
 module "url.c"
 function "is_url"
-requirement "verifies if url has the pattern '://'"
+requirement "returns 1 if url has the pattern '://', otherwise 0"
 driver "test-isUrlDriver"
 arguments "https:myurl.com"
 expected "0"

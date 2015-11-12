@@ -1,7 +1,7 @@
 id "017"
 module "bisect.c"
 function "estimate_bisect_steps"
-requirement "returns integer log e of n if (2^e < 3*(n - 2^e))"
+requirement "returns (logi n) if (2^e < 3*(n - 2^e))"
 driver "test-estimateBisectStepsDriver"
 arguments "100"
 expected "6"

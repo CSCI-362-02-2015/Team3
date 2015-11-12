@@ -1,7 +1,7 @@
 id "005"
 module "credential.c"
 function "credential_match"
-requirement "returns 1 when every field of the credentials are equal"
+requirement "returns 1 when every field of the credentials are equal, otherwise 0"
 driver "test-credentialMatchDriver"
 arguments "https example.com foo.git bob https example.com foo.git bob"
 expected "1"

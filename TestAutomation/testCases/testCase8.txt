@@ -1,7 +1,7 @@
 id "007"
 module "url.c"
 function "is_urlschemechar"
-requirement "does not allow '.' as the first url character"
+requirement "returns 0 if '.' as the first character, otherwise 1"
 driver "test-urlSchemecharDriver"
 arguments "1 ."
 expected "0"

@@ -3,6 +3,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 N_FAILS=0
+
 function executeTestCase() {
 # it goes through every line of a test case, get the executable, the parameters,
 # runs it, and compares the result with the expected outcome
@@ -87,6 +88,8 @@ echo "<table class='table table-bordered'><thead><tr>
     </tr>
   </thead>
   <tbody>" >> "$ROOT/temp/output.html"
+
+
 for testCaseFile in "${testCasesFiles[@]}"; do #iterate over the test cases
     executeTestCase "$testCaseFile"
 done
