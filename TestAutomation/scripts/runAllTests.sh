@@ -60,7 +60,7 @@ function executeTestCase() {
 
 ROOT=$(pwd) #get project top-level folder full path
 rm "$ROOT/temp/"* #remove temp files
-testCasesFiles=("$ROOT/testCases/"*.txt) #get test cases files
+testCasesFiles=($(ls $ROOT/testCases/*.txt | sort -V)) #get test cases files
 
 cp "$ROOT/testCasesExecutables/"*.c "$ROOT/project/git" #copy drivers to git repository
 
@@ -68,25 +68,21 @@ cd "$ROOT/project/git"
 echo "Compiling files.. (it will take around 2 minutes if it is your first compilation)"
 make &> /dev/null #redirect the output to not spam the terminal
 echo -e "Finished.\n"
-
 echo -e "Number of test cases: ${#testCasesFiles[@]} \n"
 
-
 echo "<!doctype html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-      <title>MyList Script</title></head><body><div class='container'><h1>Tests Result</h1><br>" >> "$ROOT/temp/output.html"
-echo "<h3>Number of test cases: ${#testCasesFiles[@]}</h3>" >> "$ROOT/temp/output.html"
-
-echo "<table class='table table-bordered'><thead><tr>
-      <th>ID</th>
-      <th>Module</th>
-      <th>Function</th>
-      <th>Requirement</th>
-      <th>Arguments</th>
-      <th>Expected</th>
-      <th>Result</th>
-      <th></th>
-    </tr>
-  </thead>
+      <title>MyList Script</title></head><body><div class='container'><h1>Tests Result</h1><br>
+      <h3>Number of test cases: ${#testCasesFiles[@]}</h3>
+      <table class='table table-bordered'><thead><tr>
+        <th>ID</th>
+        <th>Module</th>
+        <th>Function</th>
+        <th>Requirement</th>
+        <th>Arguments</th>
+        <th>Expected</th>
+        <th>Result</th>
+        <th></th>
+      </tr></thead>
   <tbody>" >> "$ROOT/temp/output.html"
 
 
